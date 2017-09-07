@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react';
+import {firebaseApp} from '../firebase'
 
-class App extends React.Component {
-  render () {
-    return (
-      <div>App</div>
-    )
-  }
+class App extends Component{
+	signOut () {
+		firebaseApp.auth().signOut();
+	}
+
+	render () {
+		return (
+			<div>
+				App
+			<button type="button" className="btn btn-danger" onClick={() => this.signOut()}>Sign Out</button>
+			</div>
+		)
+	}
 }
 
 export default App;
